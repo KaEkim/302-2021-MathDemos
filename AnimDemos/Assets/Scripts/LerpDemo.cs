@@ -19,6 +19,8 @@ public class LerpDemo : MonoBehaviour
     private float animTime = 0;
     private bool animPlaying = false;
 
+    public AnimationCurve animCurve;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,9 @@ public class LerpDemo : MonoBehaviour
 
             p = animTime / animLength;
             p = Mathf.Clamp(p, 0, 1);
+
+
+            p = p * p;
 
             transform.position = AnimMath.Lerp(thingStart.transform.position, thingEnd.transform.position, p);
             if (p >= 1) animPlaying = false;

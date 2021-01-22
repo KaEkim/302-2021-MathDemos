@@ -26,5 +26,16 @@ public class AnimMath : MonoBehaviour
         //return new Vector3(x, y, z);
 
     }
+    public static float Slide(float current, float target, float percentLeftAfter1Second)
+    {
+        float p = 1 - Mathf.Pow(percentLeftAfter1Second, Time.deltaTime);
+        return AnimMath.Lerp(current, target, p);
+    }
+
+    public static Vector3 Slide(Vector3 current, Vector3 target, float percentLeftAfter1Second)
+    {
+        float p = 1 - Mathf.Pow(percentLeftAfter1Second, Time.deltaTime);
+        return AnimMath.Lerp(current, target, p);
+    }
 
 }
